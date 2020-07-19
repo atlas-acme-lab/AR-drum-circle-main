@@ -8,6 +8,7 @@ using Melanchall.DryWetMidi.Devices;
 
 public class MidiTest : MonoBehaviour
 {
+    public ParticleSystem hitParticles;
     private Playback _playback;
     private IInputDevice _inputDevice;
 
@@ -46,6 +47,7 @@ public class MidiTest : MonoBehaviour
         drumPad.material.SetColor("_Color", drumColor);
 
         if (shouldAnimate) {
+            hitParticles.Emit(30);
             shouldAnimate = false;
             // animator.SetTrigger(triggerName);
             // trigger sound
