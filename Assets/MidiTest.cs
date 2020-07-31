@@ -3,17 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Melanchall.DryWetMidi.Core;
-using Melanchall.DryWetMidi.Devices;
 
 public class MidiTest : MonoBehaviour
 {
     public ParticleSystem hitParticles;
-    private Playback _playback;
-    private IInputDevice _inputDevice;
-
-    private IOutputDevice output;
-    // Start is called before the first frame update
 
     // connect to drum pad here
     public Renderer drumPad;
@@ -34,10 +27,6 @@ public class MidiTest : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-
-        _inputDevice = InputDevice.GetById(0);
-        _inputDevice.EventReceived += OnMIDIEventReceived;
-        _inputDevice.StartEventsListening();
     }
 
     
@@ -70,35 +59,28 @@ public class MidiTest : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit() {
-        (_inputDevice as IDisposable)?.Dispose();
-    }
-
-    private void OnMIDIEventReceived(object sender, MidiEventReceivedEventArgs e)
+    public void PlayMIDINote(int note, int velocity)
     {
-        
-        var midiDevice = (MidiDevice)sender;
-        if ((e.Event as NoteEvent).Velocity != 0) {
-            // Debug.Log((e.Event as NoteEvent).Velocity);
-            if ((e.Event as NoteEvent).NoteNumber == 2) {
+        if (velocity != 0) {
+            if (note == 2) {
                 drumColor = Color.red;
                 shouldAnimate = true;
                 triggerName = "u_l_hit";
             }
-            if ((e.Event as NoteEvent).NoteNumber == 95) {
+            if (note == 95) {
                 // Right high
                 // tempFreq = 440.0;
                 drumColor = Color.blue;
                 shouldAnimate = true;
                 triggerName = "u_r_hit";
             }
-            if ((e.Event as NoteEvent).NoteNumber == 3) {
+            if (note == 3) {
                 // tempFreq = 340.0;
                 drumColor = Color.green;
                 shouldAnimate = true;
                 triggerName = "l_l_hit";
             }
-            if ((e.Event as NoteEvent).NoteNumber == 4) {
+            if (note == 4) {
                 // Right low
                 // tempFreq = 240.0;
                 drumColor = Color.yellow;
@@ -108,27 +90,5 @@ public class MidiTest : MonoBehaviour
         } else {
             // gain = 0.0f;
         }
-    }
-
-    void OnEnable()
-    {
-        AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
-        AssemblyReloadEvents.afterAssemblyReload += OnAfterAssemblyReload;
-    }
-
-    void OnDisable()
-    {
-        AssemblyReloadEvents.beforeAssemblyReload -= OnBeforeAssemblyReload;
-        AssemblyReloadEvents.afterAssemblyReload -= OnAfterAssemblyReload;
-    }
-
-    public void OnBeforeAssemblyReload()
-    {
-        Debug.Log("Before Assembly Reload");
-    }
-
-    public void OnAfterAssemblyReload()
-    {
-        Debug.Log("After Assembly Reload");
     }
 }
