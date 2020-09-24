@@ -29,7 +29,9 @@ public class MidiTest : MonoBehaviour
     public string triggerName = "l_hit";
 
     private AudioSource audioSource;
+    private float velocity;
     public int position = 0;
+    public float maxAnimSpeed, minAnimSpeed = 3f;
 
     void Start()
     {
@@ -49,6 +51,8 @@ public class MidiTest : MonoBehaviour
         if (shouldAnimate) {
             hitParticles.Emit(30);
             shouldAnimate = false;
+            // set speed of animation based on midi velocity
+            animator.speed = VelocityMap(velocity);
             // animator.SetTrigger(triggerName);
             // trigger sound
             if (triggerName == "l_l_hit") {
@@ -79,6 +83,7 @@ public class MidiTest : MonoBehaviour
         
         var midiDevice = (MidiDevice)sender;
         if ((e.Event as NoteEvent).Velocity != 0) {
+            velocity = (e.Event as NoteEvent).Velocity;
             // Debug.Log((e.Event as NoteEvent).Velocity);
             if ((e.Event as NoteEvent).NoteNumber == 2) {
                 drumColor = Color.red;
@@ -130,5 +135,12 @@ public class MidiTest : MonoBehaviour
     public void OnAfterAssemblyReload()
     {
         Debug.Log("After Assembly Reload");
+    }
+
+    // maps midi velocity of 0-127 to range of animation speed
+    public float VelocityMap(float vel)
+    {
+        return vel * ((maxAnimSpeed - minAnimSpeed) / 127f) + minAnimSpeed;
+
     }
 }
