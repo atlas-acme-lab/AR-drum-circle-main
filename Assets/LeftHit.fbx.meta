@@ -1,0 +1,439 @@
+fileFormatVersion: 2
+guid: 4b8c060b412bd9c4fabf16e4c38d52f7
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'TH4:Hips' has translation animation that
+      will be discarded.\n\t'TH4:Hips' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 1375
+      lastFrame: 1436
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: TH4:Reference
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TH4:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Sol_LeftHandHit(Clone)
+      parentName: 
+      position: {x: 0.24211189, y: 0.6515138, z: -1.1587715}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pasted__group1
+      parentName: Sol_LeftHandHit(Clone)
+      position: {x: -0.9589969, y: 0.000075310454, z: 0.01670126}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pasted__pasted__Skeletons
+      parentName: pasted__group1
+      position: {x: -0.23235683, y: -0.6515892, z: -0.33565414}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Reference
+      parentName: pasted__pasted__Skeletons
+      position: {x: 0.66312295, y: 0.2540951, z: 1.3986545}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Hips
+      parentName: TH4:Reference
+      position: {x: 0.28814986, y: 0.70090854, z: 0.052817207}
+      rotation: {x: -0.21298192, y: -0.04645606, z: -0.0017598333, w: 0.9759495}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Spine
+      parentName: TH4:Hips
+      position: {x: -0.005265875, y: 0.08395563, z: 0.018639002}
+      rotation: {x: 0.1552302, y: -0.01777663, z: -0.005609197, w: 0.9877025}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Spine1
+      parentName: TH4:Spine
+      position: {x: -0, y: 0.12176548, z: 0}
+      rotation: {x: 0.09961564, y: 0.008201346, z: -0.027177671, w: 0.994621}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Spine2
+      parentName: TH4:Spine1
+      position: {x: -1.7053026e-16, y: 0.14205973, z: 0}
+      rotation: {x: 0.024775667, y: 0.0025026952, z: 0.00019518094, w: 0.9996899}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftShoulder
+      parentName: TH4:Spine2
+      position: {x: 8.526513e-17, y: 0.06088274, z: 0.027258482}
+      rotation: {x: 0.11399785, y: 0.07837871, z: 0.05369757, w: 0.98892766}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftArm
+      parentName: TH4:LeftShoulder
+      position: {x: -0.16257381, y: 0.04157842, z: -0.039173402}
+      rotation: {x: 0.37869364, y: -0.05516989, z: 0.0056221685, w: 0.92385924}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftForeArm
+      parentName: TH4:LeftArm
+      position: {x: -0.28543165, y: 0, z: 2.842171e-17}
+      rotation: {x: 0.0097545935, y: -0.0032067134, z: -0.009626252, w: 0.999901}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftHand
+      parentName: TH4:LeftForeArm
+      position: {x: -0.25172493, y: -2.2737369e-16, z: 2.2737369e-16}
+      rotation: {x: 0.10126, y: -0.13588598, z: -0.064084224, w: 0.9834504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightShoulder
+      parentName: TH4:Spine2
+      position: {x: 5.684342e-17, y: 0.06088274, z: 0.027258482}
+      rotation: {x: 0.12208242, y: -0.022182059, z: -0.053267337, w: 0.99084127}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightArm
+      parentName: TH4:RightShoulder
+      position: {x: 0.15484975, y: 0.04598655, z: -0.039173402}
+      rotation: {x: 0.21992034, y: 0.054336954, z: 0.04265853, w: 0.9730688}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightForeArm
+      parentName: TH4:RightArm
+      position: {x: 0.2707768, y: 0, z: 2.2737369e-16}
+      rotation: {x: -0.014170076, y: -0.0021503114, z: 0.008479754, w: 0.99986136}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightHand
+      parentName: TH4:RightForeArm
+      position: {x: 0.2694265, y: 0, z: -5.684342e-17}
+      rotation: {x: 0.07932387, y: 0.15866886, z: 0.008056966, w: 0.9841072}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Neck
+      parentName: TH4:Spine2
+      position: {x: 5.684342e-17, y: 0.14205973, z: -2.842171e-17}
+      rotation: {x: -0.38313815, y: 0.123146825, z: 0.00008720297, w: 0.91544527}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:Head
+      parentName: TH4:Neck
+      position: {x: -0.017740903, y: 0.045933295, z: 0.080645286}
+      rotation: {x: 0.08693208, y: -0.05927515, z: -0.019279055, w: 0.99426234}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftUpLeg
+      parentName: TH4:Hips
+      position: {x: -0.103054576, y: -0.03198077, z: 0.0143242115}
+      rotation: {x: 0.0713041, y: -0.240541, z: -0.06605727, w: 0.96576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftLeg
+      parentName: TH4:LeftUpLeg
+      position: {x: -0, y: -0.44425166, z: -0.0038769257}
+      rotation: {x: 0.28522626, y: -0.032187533, z: -0.047957793, w: 0.9567183}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftFoot
+      parentName: TH4:LeftLeg
+      position: {x: -0, y: -0.43392488, z: -0.02274104}
+      rotation: {x: -0.07802254, y: 0.13049167, z: 0.0989426, w: 0.9834098}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:LeftToeBase
+      parentName: TH4:LeftFoot
+      position: {x: -0, y: -0.06219977, z: 0.11162496}
+      rotation: {x: -0.032117467, y: -0.037417125, z: -0.03814036, w: 0.99805504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightUpLeg
+      parentName: TH4:Hips
+      position: {x: 0.103054576, y: -0.03198077, z: 0.0143242115}
+      rotation: {x: 0.07459143, y: 0.23145448, z: 0.0614987, w: 0.96803045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightLeg
+      parentName: TH4:RightUpLeg
+      position: {x: -5.684342e-17, y: -0.43383646, z: -0.0037860337}
+      rotation: {x: 0.28992328, y: 0.05040083, z: 0.059326433, w: 0.95387876}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightFoot
+      parentName: TH4:RightLeg
+      position: {x: 1.4210855e-17, y: -0.42128876, z: -0.022078807}
+      rotation: {x: 0.006812571, y: -0.09857077, z: -0.13074921, w: 0.9864796}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TH4:RightToeBase
+      parentName: TH4:RightFoot
+      position: {x: -0, y: -0.060241647, z: 0.10776195}
+      rotation: {x: -0.06652555, y: -0.011912186, z: 0.02991324, w: 0.9972651}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
