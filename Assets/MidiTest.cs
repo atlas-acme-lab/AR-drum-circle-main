@@ -96,28 +96,6 @@ public class MidiTest : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
-        AssemblyReloadEvents.afterAssemblyReload += OnAfterAssemblyReload;
-    }
-
-    void OnDisable()
-    {
-        AssemblyReloadEvents.beforeAssemblyReload -= OnBeforeAssemblyReload;
-        AssemblyReloadEvents.afterAssemblyReload -= OnAfterAssemblyReload;
-    }
-
-    public void OnBeforeAssemblyReload()
-    {
-        Debug.Log("Before Assembly Reload");
-    }
-
-    public void OnAfterAssemblyReload()
-    {
-        Debug.Log("After Assembly Reload");
-    }
-
     // maps midi velocity of 0-127 to range of animation speed
     public float VelocityMap(float vel)
     {
