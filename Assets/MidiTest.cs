@@ -65,11 +65,8 @@ public class MidiTest : MonoBehaviour
 
     public void PlayMIDINote(int note, int velocity)
     {
-        var midiDevice = (MidiDevice)sender;
-        if ((e.Event as NoteEvent).Velocity != 0) {
-            velocity = (e.Event as NoteEvent).Velocity;
-            // Debug.Log((e.Event as NoteEvent).Velocity);
-            if ((e.Event as NoteEvent).NoteNumber == 2) {9
+        if (velocity != 0) {
+            if (note == 2) {
                 drumColor = Color.red;
                 shouldAnimate = true;
                 triggerName = "u_l_hit";

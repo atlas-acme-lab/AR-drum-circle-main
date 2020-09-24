@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Text myText;
     public void Handshake()
     {
-        javaClass.Call("Connect");
+        // javaClass.Call("Connect");
         //send handshake message to server
     }
 
