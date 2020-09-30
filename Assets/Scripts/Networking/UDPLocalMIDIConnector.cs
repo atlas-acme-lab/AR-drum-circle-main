@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class UDPLocalMIDIConnector : MonoBehaviour
 {
-    public Text myText;
     public MidiTest drum;
     private AndroidJavaObject udpLocalClass;
     public string ip = "127.0.0.1";
@@ -20,6 +19,6 @@ public class UDPLocalMIDIConnector : MonoBehaviour
     public void PlayNoteFromLocal(string midiInfo) {
         Debug.Log("got msg from native " + midiInfo);
         string[] note = midiInfo.Split(',');
-        drum.PlayMIDINote(Convert.ToInt32(note[1]), 10);
+        drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
     }
 }
