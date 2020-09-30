@@ -5874,7 +5874,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1576720732}
   - component: {fileID: 1576720731}
-  - component: {fileID: 1576720730}
   m_Layer: 0
   m_Name: UDPConnectionManager
   m_TagString: Untagged
@@ -5882,18 +5881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1576720730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576720729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0138c196eb95911449866388b4f40bba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1576720731
 MonoBehaviour:
   m_ObjectHideFlags: 0
