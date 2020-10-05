@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UDPLocalMIDIConnector : MonoBehaviour
 {
     public MidiTest drum;
+    public UDPServerConnector server;
     private AndroidJavaObject udpLocalClass;
     public string ip = "127.0.0.1";
     // Start is called before the first frame update
@@ -18,7 +19,8 @@ public class UDPLocalMIDIConnector : MonoBehaviour
 
     public void PlayNoteFromLocal(string midiInfo) {
         Debug.Log("got msg from native " + midiInfo);
-        string[] note = midiInfo.Split(',');
-        drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
+        // server.SendServerMessage(midiInfo);
+        // string[] note = midiInfo.Split(',');
+        // drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
     }
 }
