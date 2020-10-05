@@ -12,11 +12,13 @@ public class UDPServerConnector : MonoBehaviour
     public string ip = "127.0.0.1";
     private float connectTimer = 0.5f;
     private bool sentConnect = false;
+
+    public string username = "chad";
     // Start is called before the first frame update
 
     void Start() {
         udpServerClass = new AndroidJavaObject("com.acme.networkinglibrary.UDPServerConnector");
-        udpServerClass.Call("StartConnectionThread", ip);
+        udpServerClass.Call("StartConnectionThread", ip, username);
     }
 
     void Update() {
@@ -29,9 +31,12 @@ public class UDPServerConnector : MonoBehaviour
 
     public void PlayNoteFromServer(string midiInfo) {
         Debug.Log("got msg from server " + midiInfo);
-        string[] note = midiInfo.Split(',');
-        if (Convert.ToInt32(note[0]) != 0) {
-            drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
+        if (!midiInfo.Contains("alert")) {
+            string[] packetInfo = midiInfo.Split(';');
+            string[] note = packetInfo[2].Split(',');
+            if (Convert.ToInt32(note[0]) != 0) {
+                drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
+            }
         }
     }
 

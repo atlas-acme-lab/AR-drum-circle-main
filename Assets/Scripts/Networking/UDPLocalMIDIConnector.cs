@@ -19,8 +19,5 @@ public class UDPLocalMIDIConnector : MonoBehaviour
 
     public void PlayNoteFromLocal(string midiInfo) {
         Debug.Log("got msg from native " + midiInfo);
-        // server.SendServerMessage(midiInfo);
-        // string[] note = midiInfo.Split(',');
-        // drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
     }
 }
