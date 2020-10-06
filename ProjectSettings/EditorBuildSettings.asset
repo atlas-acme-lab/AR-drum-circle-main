@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MIDI Direct Connect test.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/UDPAndroidMain.unity
+    guid: 3e134439d2cb7824cb384bfafea5d49e
+  - enabled: 1
+    path: Assets/Scenes/UDPAnimation.unity
+    guid: 8258ca0aea5a08f459718955591b449e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: febda66e027af3743849a309df42274a,
       type: 2}
