@@ -71,7 +71,7 @@ public class MidiTest : MonoBehaviour
                 shouldAnimate = true;
                 triggerName = "u_l_hit";
             }
-            if (note == 95) {
+            if (note == 1) {
                 // Right high
                 // tempFreq = 440.0;
                 drumColor = Color.blue;
@@ -96,6 +96,28 @@ public class MidiTest : MonoBehaviour
         }
     }
 
+    public void PlayLocalSound(int note, int velocity)
+    {
+        if (velocity != 0)
+        {
+            if (note == 2)
+            {
+                topLeft.Play();
+            }
+            if (note == 1)
+            {
+                topRight.Play();
+            }
+            if (note == 3)
+            {
+                lowLeft.Play();
+            }
+            if (note == 4)
+            {
+                lowRight.Play();
+            }
+        }
+    }
     // maps midi velocity of 0-127 to range of animation speed
     public float VelocityMap(float vel)
     {
