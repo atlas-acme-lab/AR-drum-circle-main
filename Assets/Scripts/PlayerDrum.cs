@@ -17,7 +17,7 @@ public class PlayerDrum : MonoBehaviour
         if (note > 3 || note < 0) return;
 
         GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], 0.7f);
+        newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], velocity / 127.0f);
     }
 
     // // Update is called once per frame
