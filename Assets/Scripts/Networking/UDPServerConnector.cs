@@ -30,7 +30,7 @@ public class UDPServerConnector : MonoBehaviour
     }
 
     public void PlayNoteFromServer(string midiInfo) {
-        Debug.Log("got msg from server " + midiInfo);
+        // Debug.Log("got msg from server " + midiInfo);
         if (!midiInfo.Contains("alert")) {
             string[] packetInfo = midiInfo.Split(';');
             string[] note = packetInfo[2].Split(',');
