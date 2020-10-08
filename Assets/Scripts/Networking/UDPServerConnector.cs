@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UDPServerConnector : MonoBehaviour
 {
-    public MidiTest drum;
+    public PlayerDrum drum;
     private AndroidJavaObject udpServerClass;
     public string id = "0";
     public string ip = "127.0.0.1";
@@ -30,11 +30,11 @@ public class UDPServerConnector : MonoBehaviour
     }
 
     public void PlayNoteFromServer(string midiInfo) {
-        Debug.Log("got msg from server " + midiInfo);
+        // Debug.Log("got msg from server " + midiInfo);
         if (!midiInfo.Contains("alert")) {
             string[] packetInfo = midiInfo.Split(';');
             string[] note = packetInfo[2].Split(',');
-            if (Convert.ToInt32(note[0]) != 0) {
+            if (Convert.ToInt32(note[0]) != 0 && Convert.ToInt32(note[2]) != 0) {
                 drum.PlayMIDINote(Convert.ToInt32(note[1]), Convert.ToInt32(note[2]));
             }
         }
