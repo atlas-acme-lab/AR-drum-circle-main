@@ -534,11 +534,8 @@ MonoBehaviour:
   audioPrefab: {fileID: 7523505777757802097, guid: b97920b7eea000f4aac086d984020279,
     type: 3}
   drumPad: {fileID: 557655096}
-  drumColor: {r: 1, g: 0, b: 0, a: 1}
   hitParticles: {fileID: 1321796141}
   animator: {fileID: 1701369956}
-  shouldAnimate: 0
-  triggerName: l_hit
   maxAnimSpeed: 3
   minAnimSpeed: 1
 --- !u!33 &557655098
@@ -656,7 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737a431f2a6131246b63fbf72ca6d30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drum: {fileID: 1701369954}
+  drum: {fileID: 557655097}
   server: {fileID: 870795378}
   clips:
   - {fileID: 8300000, guid: f5c0b9ee6c49e5640a6c1a9596c0d781, type: 3}
@@ -665,7 +662,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 28558bea245d9b14b9fa41ce3a1e1e14, type: 3}
   audioPrefab: {fileID: 7523505777757802097, guid: b97920b7eea000f4aac086d984020279,
     type: 3}
-  ip: 192.168.0.6
+  ip: 10.0.0.133
 --- !u!4 &773424702
 Transform:
   m_ObjectHideFlags: 0
@@ -5908,6 +5905,7 @@ GameObject:
   - component: {fileID: 1499520656}
   - component: {fileID: 1499520655}
   - component: {fileID: 1499520654}
+  - component: {fileID: 1499520659}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: MainCamera
@@ -6007,6 +6005,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 9.632001, y: -17.856, z: 0}
+--- !u!114 &1499520659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499520653}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab1951b537079f4facff82710815cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1701369956}
 --- !u!1001 &1701369952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6239,7 +6250,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701369953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e240aaa3b546e16408af709997a12065, type: 3}
   m_Name: 
