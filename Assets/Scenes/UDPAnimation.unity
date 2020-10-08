@@ -533,6 +533,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58ed6e0d7cb6a1248a96c5112850c5d4, type: 3}
   audioPrefab: {fileID: 7523505777757802097, guid: b97920b7eea000f4aac086d984020279,
     type: 3}
+  drumPad: {fileID: 557655096}
+  drumColor: {r: 1, g: 0, b: 0, a: 1}
+  hitParticles: {fileID: 1321796141}
+  animator: {fileID: 1701369956}
+  shouldAnimate: 0
+  triggerName: l_hit
+  maxAnimSpeed: 3
+  minAnimSpeed: 1
 --- !u!33 &557655098
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -704,7 +712,7 @@ MonoBehaviour:
   drum: {fileID: 557655097}
   id: peter_android
   ip: 174.16.109.217
-  username: chad
+  username: csoguero
 --- !u!4 &870795379
 Transform:
   m_ObjectHideFlags: 0
@@ -6345,6 +6353,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1701369956 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6d19ba52874e3b649961b38dc1bb9a0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1701369952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1701369957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d19ba52874e3b649961b38dc1bb9a0b,
@@ -6467,7 +6481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2145910011
 RectTransform:
   m_ObjectHideFlags: 0
