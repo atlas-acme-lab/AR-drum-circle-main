@@ -24,7 +24,8 @@ public class MidiTest : MonoBehaviour
     private AudioSource audioSource;
     private float velocity;
     public int position = 0;
-    public float maxAnimSpeed, minAnimSpeed = 3f;
+    public float maxAnimSpeed = 5f;
+    public float minAnimSpeed = 3f;
 
     void Start()
     {
@@ -66,25 +67,25 @@ public class MidiTest : MonoBehaviour
     public void PlayMIDINote(int note, int velocity)
     {
         if (velocity != 0) {
-            if (note == 2) {
+            if (note == 1) {
                 drumColor = Color.red;
                 shouldAnimate = true;
                 triggerName = "u_l_hit";
             }
-            if (note == 1) {
+            if (note == 0) {
                 // Right high
                 // tempFreq = 440.0;
                 drumColor = Color.blue;
                 shouldAnimate = true;
                 triggerName = "u_r_hit";
             }
-            if (note == 3) {
+            if (note == 2) {
                 // tempFreq = 340.0;
                 drumColor = Color.green;
                 shouldAnimate = true;
                 triggerName = "l_l_hit";
             }
-            if (note == 4) {
+            if (note == 3) {
                 // Right low
                 // tempFreq = 240.0;
                 drumColor = Color.yellow;
@@ -100,19 +101,19 @@ public class MidiTest : MonoBehaviour
     {
         if (velocity != 0)
         {
-            if (note == 2)
+            if (note == 1)
             {
                 topLeft.Play();
             }
-            if (note == 1)
+            if (note == 0)
             {
                 topRight.Play();
             }
-            if (note == 3)
+            if (note == 2)
             {
                 lowLeft.Play();
             }
-            if (note == 4)
+            if (note == 3)
             {
                 lowRight.Play();
             }

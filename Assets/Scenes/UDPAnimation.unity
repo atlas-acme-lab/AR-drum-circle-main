@@ -6746,8 +6746,8 @@ MonoBehaviour:
   shouldAnimate: 0
   triggerName: l_hit
   position: 0
-  maxAnimSpeed: 0
-  minAnimSpeed: 3
+  maxAnimSpeed: 3
+  minAnimSpeed: 1
 --- !u!82 &1701369955
 AudioSource:
   m_ObjectHideFlags: 0
