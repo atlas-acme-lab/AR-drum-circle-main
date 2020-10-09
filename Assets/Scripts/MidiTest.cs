@@ -36,7 +36,7 @@ public class MidiTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        drumPad.material.SetColor("_Color", drumColor);
+        // drumPad.material.SetColor("_Color", drumColor);
 
         if (shouldAnimate) {
             hitParticles.Emit(30);
