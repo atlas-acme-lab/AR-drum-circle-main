@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 public class PlayerDrum : MonoBehaviour
 {
@@ -8,8 +9,6 @@ public class PlayerDrum : MonoBehaviour
     public GameObject audioPrefab;
 
     public Renderer drumPad;
-
-    public ParticleSystem hitParticles;
 
     public Animator animator;
 
@@ -40,6 +39,8 @@ public class PlayerDrum : MonoBehaviour
         GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], velocity / 127.0f);
 
+        particles.Emit(30);
+
         if (velocity != 0)
         {
             animator.speed = VelocityMap(velocity);
@@ -52,7 +53,7 @@ public class PlayerDrum : MonoBehaviour
             if (note == 0)
             {
                 drumPad.material.SetColor("_Color", palette[1]);
-                particles.startColor = palette[1];
+                particles.startColor = palette[1]; 
                 animator.Play("Right Side.Right Hit", 2, 0);
             }
             if (note == 2)

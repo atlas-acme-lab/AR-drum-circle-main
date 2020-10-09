@@ -723,10 +723,7 @@ MonoBehaviour:
   audioPrefab: {fileID: 7523505777757802097, guid: b97920b7eea000f4aac086d984020279,
     type: 3}
   drumPad: {fileID: 557655096}
-  hitParticles: {fileID: 1321796141}
   animator: {fileID: 1701369956}
-  shouldAnimate: 0
-  triggerName: l_hit
   particles: {fileID: 1321796141}
   drumColor: {r: 1, g: 0, b: 0, a: 1}
   maxAnimSpeed: 3
@@ -6182,7 +6179,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d19ba52874e3b649961b38dc1bb9a0b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d19ba52874e3b649961b38dc1bb9a0b,
         type: 3}
