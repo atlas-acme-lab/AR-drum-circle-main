@@ -24,7 +24,7 @@ public class PlayerDrum : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        palette.Add(new Color(0.9f, 0.31f, 0.42f));
+        palette.Add(new Color(.9f, .9f, .3f));
         palette.Add(new Color(0.9f, 0.55f, 0.21f));
         palette.Add(new Color(0.33f, 0.42f, 0.78f));
         palette.Add(new Color(0.47f, 0.59f, 0.93f));
@@ -38,8 +38,6 @@ public class PlayerDrum : MonoBehaviour
 
         GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], velocity / 127.0f);
-
-        particles.Emit(30);
 
         if (velocity != 0)
         {
@@ -70,6 +68,7 @@ public class PlayerDrum : MonoBehaviour
 
             }
         }
+        particles.Emit(30);
     }
 
     // // Update is called once per frame
