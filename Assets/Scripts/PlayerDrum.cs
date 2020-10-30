@@ -65,7 +65,6 @@ public class PlayerDrum : MonoBehaviour
                 drumPad.material.SetColor("_Color", palette[3]);
                 particles.startColor = palette[3];
                 animator.Play("Right Side.Right Hit", 2, 0);
-
             }
         }
         particles.Emit(30);
