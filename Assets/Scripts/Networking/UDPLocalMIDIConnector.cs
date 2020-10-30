@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UDPLocalMIDIConnector : MonoBehaviour
 {
-    public MidiTest drum;
+    public PlayerDrum localDrum;
     public UDPServerConnector server;
     private AndroidJavaObject udpLocalClass;
 
@@ -32,10 +32,12 @@ public class UDPLocalMIDIConnector : MonoBehaviour
             // Debug.Log("play note?");
             if (Convert.ToInt32(midiInfo[0]) != 0 && Convert.ToInt32(midiInfo[2]) != 0)
             {
-                int note = Convert.ToInt32(midiInfo[1]);
+                Debug.Log("Local hit");
+                localDrum.PlayMIDINote(Convert.ToInt32(midiInfo[1]), Convert.ToInt32(midiInfo[2])); //for debugging locally
+/*              int note = Convert.ToInt32(midiInfo[1]);
                 if (note > 3 || note < 0) return;
                 GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], Convert.ToInt32(midiInfo[2]) / 127.0f);
+                newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], Convert.ToInt32(midiInfo[2]) / 127.0f);*/
             }
         }
     }
