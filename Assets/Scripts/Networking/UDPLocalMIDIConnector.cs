@@ -13,6 +13,8 @@ public class UDPLocalMIDIConnector : MonoBehaviour
     public List<AudioClip> clips;
     public GameObject audioPrefab;
 
+    public bool notePlayed = false;
+
 
     public string ip = "127.0.0.1";
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class UDPLocalMIDIConnector : MonoBehaviour
         // Debug.Log("got msg from native " + midiInfo);
         if (!packetInfo.Contains("alert"))
         {
+            notePlayed = true;
             string[] parsedPacket = packetInfo.Split(';');
             string[] midiInfo = parsedPacket[2].Split(',');
             // Debug.Log("play note?");
