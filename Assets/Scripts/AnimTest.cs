@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class AnimTest : MonoBehaviour
 {
-    public Animator anim;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerDrum drum;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Pressed E");
-            anim.Play("Right Side.Right Hit", 2, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Debug.Log("Pressed W");
-            anim.Play("Left Side.Left Hit", 1, 0);
-        }
+        if(Input.GetKeyDown(KeyCode.A))
+            drum.PlayMIDINote(36, 100);
+
+        if (Input.GetKeyDown(KeyCode.S))
+            drum.PlayMIDINote(37, 100);
+
+        if(Input.GetKeyDown(KeyCode.D))
+            drum.PlayMIDINote(38, 100);
+            
+        if (Input.GetKeyDown(KeyCode.F))
+            drum.PlayMIDINote(39, 100);
+
     }
 }

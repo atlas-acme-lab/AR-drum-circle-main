@@ -7,6 +7,8 @@ public class MenuPanelMovement : MonoBehaviour
     public GameObject MenuOrigPos;
     public GameObject MenuActivePos;
     public GameObject MenuPanel;
+    public GameObject menuIcon;
+    public GameObject loopPanel;
 
     public bool Move_Menu_Panel;
     public bool Move_Menu_Panel_Back;
@@ -55,14 +57,22 @@ public class MenuPanelMovement : MonoBehaviour
 
     public void MovePanel()
     {
+        menuIcon.SetActive(false);
         Move_Menu_Panel_Back = false;
         Move_Menu_Panel = true;
     }
 
     public void MovePanelBack()
     {
+        menuIcon.SetActive(true);
         Move_Menu_Panel_Back = true;
         Move_Menu_Panel = false;
+    }
+
+    public void UnhideUI()
+    {
+        loopPanel.SetActive(true);
+        menuIcon.SetActive(true);
     }
 }
 
