@@ -13,6 +13,7 @@ public class LoopManager : MonoBehaviour
     private bool recordingInitialized = false;
     private bool recording = false;
     private bool looping = false;
+    private bool recordNew;
 
     public Action OnStartedRecording;
     public Action OnStoppedRecording;
@@ -31,6 +32,35 @@ public class LoopManager : MonoBehaviour
             UpdateLooping();
         }
         
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            recordNew = !recordNew;
+            PedalPress();
+        }
+    }
+
+    private void PedalPress()
+    {
+        if(recordNew)
+        {
+            if(!recordingInitialized)
+                StartStopRecording();
+            else
+            {
+                StartStopLooping(); //stop looping
+                StartStopRecording(); //start recording
+                recordNew = false;
+            }
+        }
+        else
+        {
+            StartStopRecording(); //stop recording
+            StartStopLooping(); //start looping
+        }
     }
 
     public void StartStopRecording()
@@ -134,6 +164,8 @@ public class LoopManager : MonoBehaviour
         {
             OnStoppedLooping();
         }
+        if(!recordNew)
+            StartStopLooping();
     }
 
     private void SaveHit(PlayerDrum drum)

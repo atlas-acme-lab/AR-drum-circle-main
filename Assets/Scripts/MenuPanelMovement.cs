@@ -71,7 +71,7 @@ public class MenuPanelMovement : MonoBehaviour
 
     public void UnhideUI()
     {
-        loopPanel.SetActive(true);
+        //loopPanel.SetActive(true);
         menuIcon.SetActive(true);
     }
 }
