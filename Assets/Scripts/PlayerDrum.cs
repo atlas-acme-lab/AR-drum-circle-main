@@ -22,7 +22,7 @@ public class PlayerDrum : MonoBehaviour
     public float maxAnimSpeed = 3f;
     public float minAnimSpeed = 1f;
 
-    public int noteNum = 999;
+    public int noteNum = 0;
     public int noteVel = 0;
 
     void Start()

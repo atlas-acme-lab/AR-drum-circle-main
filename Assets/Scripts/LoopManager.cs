@@ -1,185 +1,62 @@
 ﻿using System;
 using UnityEngine;
-using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 
 public class LoopManager : MonoBehaviour
 {
-    public PlayerDrum drum;
+    public int loopLength; //for midi/animation playback
+    public bool firstLoopCreated = false;
+    public int counter = 0;
+    public GameObject loopPrefab;
+    public List<GameObject> loopList = new List<GameObject>();
+    public static LoopManager instance;
 
-    private MemoryStream memoryStream = null;
-    private BinaryWriter binaryWriter = null;
-    private BinaryReader binaryReader = null;
+    public GameObject playerPrefab;
+    public List<GameObject> drumList = new List<GameObject>();
 
-    private bool recordingInitialized = false;
-    private bool recording = false;
-    private bool looping = false;
-    private bool recordNew;
+    public int recordingLength; //for audio playback
 
-    public Action OnStartedRecording;
-    public Action OnStoppedRecording;
-    public Action OnStartedLooping;
-    public Action OnStoppedLooping;
-
-    public void FixedUpdate()
+    void Start()
     {
-        if (recording)
+        if(instance == null)
         {
-            UpdateRecording();
-            drum.noteNum = 999; //ensures that if the PlayMIDINote function hasn't been called this frame, noteNum is set to -1
+            instance = this;
         }
-        else if (looping)
-        {
-            UpdateLooping();
-        }
-        
+        //drumList.Add(GameObject.FindGameObjectWithTag("LocalDrum"));
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.L))
         {
-            recordNew = !recordNew;
             PedalPress();
         }
     }
 
     private void PedalPress()
     {
-        if(recordNew)
+        /*
+        First press should start recording for indeterminate length
+        Second press should end recording and save length
+        Every subsequent press should start recording for determined length and automatically stop after that length of time
+        (Loop number is determined in Loop script)
+        */
+        if (counter == 1)
         {
-            if(!recordingInitialized)
-                StartStopRecording();
-            else
-            {
-                StartStopLooping(); //stop looping
-                StartStopRecording(); //start recording
-                recordNew = false;
-            }
+            //call stop recording on first instance and start looping
+            loopList[0].GetComponent<Loop>().StopRecording();
+            loopList[0].GetComponent<Loop>().StartLooping();
+            firstLoopCreated = true;
         }
         else
         {
-            StartStopRecording(); //stop recording
-            StartStopLooping(); //start looping
+            //create new loop
+            loopList.Add(Instantiate(loopPrefab));
+            drumList.Add(Instantiate(playerPrefab)); //will have to add transform to get proper positioning
+            //drumList[drumList.Count-1].GetComponent<MeshRenderer>().enabled = false;
+            loopList[loopList.Count-1].GetComponent<Loop>().index = loopList.Count-1; //set index of loop based on position in loopList
         }
-    }
-
-    public void StartStopRecording()
-    {
-        if (!recording)
-        {
-            StartRecording();
-            drum.noteNum = 999;
-        }
-        else
-        {
-            StopRecording();
-        }
-    }
-
-    private void InitializeRecording()
-    {
-        memoryStream = new MemoryStream();
-        binaryWriter = new BinaryWriter(memoryStream);
-        binaryReader = new BinaryReader(memoryStream);
-        recordingInitialized = true;
-    }
-
-    private void StartRecording()
-    {
-        if (!recordingInitialized)
-        {
-            InitializeRecording();
-        }
-        else
-        {
-            memoryStream.SetLength(0);
-        }
-        ResetLoopFrame();
-
-        recording = true;
-        if (OnStartedRecording != null)
-        {
-            OnStartedRecording();
-        }
-    }
-
-    private void UpdateRecording()
-    {
-        SaveHit(drum);
-    }
-
-    private void StopRecording()
-    {
-        recording = false;
-        if (OnStoppedRecording != null)
-        {
-            OnStoppedRecording();
-        }
-    }
-
-    private void ResetLoopFrame()
-    {
-        memoryStream.Seek(0, SeekOrigin.Begin);
-        binaryWriter.Seek(0, SeekOrigin.Begin);
-    }
-
-    public void StartStopLooping()
-    {
-        if (!looping)
-        {
-            StartLooping();
-        }
-        else
-        {
-            StopLooping();
-        }
-    }
-
-    private void StartLooping()
-    {
-        ResetLoopFrame();
-        looping = true;
-        if (OnStartedLooping != null)
-        {
-            OnStartedLooping();
-        }
-    }
-
-    private void UpdateLooping()
-    {
-        if (memoryStream.Position >= memoryStream.Length)
-        {
-            StopLooping();
-            return;
-        }
-
-        LoadHit(drum);
-
-    }
-
-    private void StopLooping()
-    {
-        looping = false;
-        if (OnStoppedLooping != null)
-        {
-            OnStoppedLooping();
-        }
-        if(!recordNew)
-            StartStopLooping();
-    }
-
-    private void SaveHit(PlayerDrum drum)
-    {
-        binaryWriter.Write(drum.noteNum);
-        binaryWriter.Write(drum.noteVel);
-        //Debug.Log(drum.noteNum);
-    }
-
-    private void LoadHit(PlayerDrum drum)
-    {
-        int note = binaryReader.ReadInt32();
-        int vel = binaryReader.ReadInt32();
-        //Debug.Log(binaryReader.ReadInt32());
-        drum.PlayMIDINote(note, vel);
+        counter++;
     }
 }

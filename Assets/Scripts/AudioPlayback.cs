@@ -49,12 +49,12 @@ public class AudioPlayback : MonoBehaviour
         recordingInitialized = true;
         if(!recording)
         {
-            audioSource.clip = Microphone.Start("Built-in Microphone", false, loopLength, 44100); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
+            audioSource.clip = Microphone.Start("Microphone (Realtek(R) Audio)", false, loopLength, 44100); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
             recordText.SetActive(true);
         }
         else
         {
-            Microphone.End("Built-in Microphone"); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
+            Microphone.End("Microphone (Realtek(R) Audio)"); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
             recordText.SetActive(false);
         }
         recording = !recording;
