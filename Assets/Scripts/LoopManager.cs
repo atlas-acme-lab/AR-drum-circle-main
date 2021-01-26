@@ -53,7 +53,7 @@ public class LoopManager : MonoBehaviour
         {
             //create new loop
             loopList.Add(Instantiate(loopPrefab));
-            drumList.Add(Instantiate(playerPrefab)); //will have to add transform to get proper positioning
+            drumList.Add(Instantiate(playerPrefab, transform.position + new Vector3(drumList.Count + 1, 0, 0), Quaternion.identity)); //will have to add transform to get proper positioning
             //drumList[drumList.Count-1].GetComponent<MeshRenderer>().enabled = false;
             loopList[loopList.Count-1].GetComponent<Loop>().index = loopList.Count-1; //set index of loop based on position in loopList
         }

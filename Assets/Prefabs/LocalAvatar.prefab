@@ -5097,6 +5097,33 @@ MonoBehaviour:
   position: 0
   maxAnimSpeed: 3
   minAnimSpeed: 1
+--- !u!114 &1974086696749636984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294292793161549128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98c64c29b93f96439fe93c87e2d932c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  makePink: 0
+  AvatarJoints: {fileID: 0}
+  AvatarSurface: {fileID: 0}
+  blueJoint: {fileID: 2100000, guid: db34d92dc4af7c6489a98e9de6234804, type: 2}
+  blueSurface: {fileID: 2100000, guid: 82ef4e46af864bc4bb504592ad092ba7, type: 2}
+  greenJoint: {fileID: 2100000, guid: e4247569691db3f43a2b11d60cee6a71, type: 2}
+  greenSurface: {fileID: 2100000, guid: 4d9b53e1ebcb621438b843a1d2587800, type: 2}
+  yellowJoint: {fileID: 2100000, guid: 43f9acee39c8c564e9232dd9bcc6e5e3, type: 2}
+  yellowSurface: {fileID: 2100000, guid: 9206cf8e9e2a76843ba559e0cd1c35f1, type: 2}
+  orangeJoint: {fileID: 2100000, guid: c235f5b2e0a84e344b86eb17a596c4dd, type: 2}
+  orangeSurface: {fileID: 2100000, guid: 04b4f8f05a98a154bad70112efd5778f, type: 2}
+  purpleJoint: {fileID: 2100000, guid: 2a4ae4c97639a854aaec8da1e48a964b, type: 2}
+  purpleSurface: {fileID: 2100000, guid: 9d6245d5ed72dae439dec166cf08b6ef, type: 2}
+  pinkJoint: {fileID: 2100000, guid: 8e922804a1040ce4d801f04b67b42a33, type: 2}
+  pinkSurface: {fileID: 2100000, guid: 8f3f653b254bdee4ba8a41408299869a, type: 2}
 --- !u!1001 &2411330182943815705
 PrefabInstance:
   m_ObjectHideFlags: 0

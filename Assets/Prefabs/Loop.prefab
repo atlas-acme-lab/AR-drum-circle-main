@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recording: 0
+  looping: 0
   index: 0
-  recordText: {fileID: 0}
 --- !u!82 &3982746828759086925
 AudioSource:
   m_ObjectHideFlags: 0

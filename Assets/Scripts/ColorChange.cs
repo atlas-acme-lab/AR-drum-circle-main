@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
+    public bool makePink = false;
+    public bool makeOrange = false;
     public SkinnedMeshRenderer AvatarJoints;
     public SkinnedMeshRenderer AvatarSurface;
 
@@ -14,6 +16,25 @@ public class ColorChange : MonoBehaviour
     public Material purpleJoint, purpleSurface;
     public Material pinkJoint, pinkSurface;
 
+    void Start()
+    {
+        AvatarJoints = GetComponentsInChildren<SkinnedMeshRenderer>()[0];
+        AvatarSurface = GetComponentsInChildren<SkinnedMeshRenderer>()[1];
+    }
+
+    void Update()
+    {
+        if(makePink)
+        {
+            ChangeToPink();
+            makePink = false;
+        }
+        if(makeOrange)
+        {
+            ChangeToYellow();
+            makeOrange = false;
+        }
+    }
     public void ChangeToBlue()
     {
         AvatarSurface.material = blueSurface;
