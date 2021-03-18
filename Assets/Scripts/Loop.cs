@@ -18,20 +18,44 @@ public class Loop : MonoBehaviour
     private int maxRecordingFrames;
     private int counter = 0;
     public int index;
-    
+    public MIC microphone;
+    public int sampleRate = 44100;
+    private string micName;
     AudioSource audioSource;
 
+    public enum MIC
+    {
+        Realtek,
+        Android,
+        Builtin
+    };
     void Start()
     {
+        switch(microphone)
+        {
+            case MIC.Realtek:
+                micName = "Microphone (Realtek(R) Audio)";
+                break;
+            case MIC.Android:
+                micName = "Android audio input";
+                break;
+            case MIC.Builtin:
+                micName = "Built-in Microphone";
+                break;
+            default:
+                micName = "Built-in Microphone";
+                break;
+        }
+        Debug.Log("Mic: " + micName);
         audioSource = GetComponent<AudioSource>();
         if(!LoopManager.instance.firstLoopCreated)
         {
-            audioSource.clip = Microphone.Start("Android audio input", false, 60, 44100); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
+            audioSource.clip = Microphone.Start(micName, false, 60, sampleRate); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
             //Debug.Log("Mic start");
         }
         else
         {
-            audioSource.clip = Microphone.Start("Android audio input", false, LoopManager.instance.recordingLength/44100, 44100);
+            audioSource.clip = Microphone.Start(micName, false, LoopManager.instance.recordingLength/sampleRate, sampleRate);
         }
         //recordText.SetActive(true);
         maxRecordingFrames = LoopManager.instance.loopLength-1; // if this is the first loop length will default to 0 (note: first loop condition is checked in UpdateRecording())
@@ -108,7 +132,7 @@ public class Loop : MonoBehaviour
             LoopManager.instance.loopLength = counter;
             //Microphone.End("Microphone (Realtek(R) Audio)"); //Microphone (Realtek(R) Audio), Android audio input, Built-in Microphone
             //Debug.Log("Mic end");
-            EndRecording(audioSource, "Android audio input");
+            EndRecording(audioSource, micName);
         }
         recording = false;
         //recordText.SetActive(false);
@@ -164,14 +188,14 @@ public class Loop : MonoBehaviour
     {
         //Capture the current clip data
         AudioClip recordedClip = audS.clip;
-        var position = Microphone.GetPosition("Android audio input");
+        var position = Microphone.GetPosition(micName);
         var soundData = new float[recordedClip.samples * recordedClip.channels];
         recordedClip.GetData(soundData, 0);
  
         //Create shortened array for the data that was used for recording
         var newData = new float[position * recordedClip.channels];
  
-        Microphone.End ("Android audio input");
+        Microphone.End (micName);
         //Copy the used samples to a new array
         for (int i = 0; i < newData.Length; i++)
         {

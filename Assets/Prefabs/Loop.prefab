@@ -47,6 +47,8 @@ MonoBehaviour:
   recording: 0
   looping: 0
   index: 0
+  microphone: 1
+  sampleRate: 48000
 --- !u!82 &3982746828759086925
 AudioSource:
   m_ObjectHideFlags: 0
