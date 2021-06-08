@@ -4,25 +4,68 @@ using UnityEngine;
 
 public class AnimTest : MonoBehaviour
 {
-    public Animator anim;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private bool sendToLocal = true;
+    public PlayerDrum localDrum;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(LoopManager.instance.loopList.Count > 0)
         {
-            Debug.Log("Pressed E");
-            anim.Play("Right Side.Right Hit", 2, 0);
+            foreach(GameObject loop in LoopManager.instance.loopList)
+            {
+                if(!loop.GetComponent<Loop>().recording)
+                {
+                    sendToLocal = true;
+                }
+                else
+                {
+                    sendToLocal = false;
+                    break;
+                }
+            }
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if(sendToLocal)
         {
-            Debug.Log("Pressed W");
-            anim.Play("Left Side.Left Hit", 1, 0);
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                localDrum.PlayMIDINote(36, 100);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                localDrum.PlayMIDINote(37, 100);
+            }
+
+            if(Input.GetKeyDown(KeyCode.D))
+            {
+                localDrum.PlayMIDINote(38, 100);         
+            }
+                
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                localDrum.PlayMIDINote(39, 100);
+            }
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                LoopManager.instance.drumList[LoopManager.instance.drumList.Count-1].GetComponentInChildren<PlayerDrum>().PlayMIDINote(36, 100);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                LoopManager.instance.drumList[LoopManager.instance.drumList.Count-1].GetComponentInChildren<PlayerDrum>().PlayMIDINote(37, 100);
+            }
+
+            if(Input.GetKeyDown(KeyCode.D))
+            {
+                LoopManager.instance.drumList[LoopManager.instance.drumList.Count-1].GetComponentInChildren<PlayerDrum>().PlayMIDINote(38, 100);         
+            }
+                
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoopManager.instance.drumList[LoopManager.instance.drumList.Count-1].GetComponentInChildren<PlayerDrum>().PlayMIDINote(39, 100);
+            }
         }
     }
 }

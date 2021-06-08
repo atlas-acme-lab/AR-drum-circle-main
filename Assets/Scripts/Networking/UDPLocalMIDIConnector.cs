@@ -13,6 +13,7 @@ public class UDPLocalMIDIConnector : MonoBehaviour
     public List<AudioClip> clips;
     public GameObject audioPrefab;
 
+    private bool sendToLocal = true;
 
     public string ip = "127.0.0.1";
     // Start is called before the first frame update
@@ -20,7 +21,26 @@ public class UDPLocalMIDIConnector : MonoBehaviour
     {
         udpLocalClass = new AndroidJavaObject("com.acme.networkinglibrary.UDPMidiConnector");
         udpLocalClass.Call("SetDebug", true);
-        udpLocalClass.Call("StartConnectionThread", ip);
+        udpLocalClass.Call("StartConnectionThread", GetLocalIPAddress());
+    }
+
+    void Update()
+    {
+        if(LoopManager.instance.loopList.Count > 0)
+        {
+            foreach(GameObject loop in LoopManager.instance.loopList)
+            {
+                if(!loop.GetComponent<Loop>().recording)
+                {
+                    sendToLocal = true;
+                }
+                else
+                {
+                    sendToLocal = false;
+                    break;
+                }
+            }
+        }
     }
 
     public void PlayNoteFromLocal(string packetInfo) {
@@ -32,13 +52,36 @@ public class UDPLocalMIDIConnector : MonoBehaviour
             // Debug.Log("play note?");
             if (Convert.ToInt32(midiInfo[0]) != 0 && Convert.ToInt32(midiInfo[2]) != 0)
             {
-                Debug.Log("Local hit");
-                localDrum.PlayMIDINote(Convert.ToInt32(midiInfo[1]), Convert.ToInt32(midiInfo[2])); //for debugging locally
-/*              int note = Convert.ToInt32(midiInfo[1]);
-                if (note > 3 || note < 0) return;
-                GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], Convert.ToInt32(midiInfo[2]) / 127.0f);*/
+                //Debug.Log("Local hit");
+                if(sendToLocal)
+                {
+                    localDrum.PlayMIDINote(Convert.ToInt32(midiInfo[1]), Convert.ToInt32(midiInfo[2]));
+                }
+                else
+                {
+                    LoopManager.instance.drumList[LoopManager.instance.drumList.Count-1].GetComponentInChildren<PlayerDrum>().PlayMIDINote(Convert.ToInt32(midiInfo[1]), Convert.ToInt32(midiInfo[2]));
+                }
+                //comment out if only rendering local sound
+                // int note = Convert.ToInt32(midiInfo[1]);                                               //For when you only want to play sound locally but not play animation
+                // if (note > 3 || note < 0) return;
+                // GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity); 
+                // newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], Convert.ToInt32(midiInfo[2]) / 127.0f);
             }
         }
     }
+
+    public static string GetLocalIPAddress()
+    {
+        var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+
+        throw new System.Exception("No network adapters with an IPv4 address in the system!");
+    }
+
 }
