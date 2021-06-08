@@ -14,9 +14,33 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UDPAndroidMain.unity
     guid: 3e134439d2cb7824cb384bfafea5d49e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UDPAnimation.unity
     guid: 8258ca0aea5a08f459718955591b449e
+  - enabled: 0
+    path: Assets/NRSDK/Demos/HelloMR-3dof.unity
+    guid: 1930205874b70904a994853afcaa90af
+  - enabled: 0
+    path: Assets/Scenes/ImageTrackingTest.unity
+    guid: 530130d4d1573df4fa606f8c51394d5f
+  - enabled: 0
+    path: Assets/Scenes/ImageTrackingT1.unity
+    guid: ba3f964e5082e694794dc48300188027
+  - enabled: 0
+    path: Assets/NRSDK/Demos/HelloMR.unity
+    guid: dd74f1c9685ef48499229d4957b58000
+  - enabled: 0
+    path: Assets/Scenes/Plane_Detect_Test.unity
+    guid: eaa656b1005d17549ac2fd29f61d8d7f
+  - enabled: 0
+    path: Assets/Scenes/UDPAnimation_PlaneD.unity
+    guid: 656278a15ba96be40aa951a283c9abe4
+  - enabled: 0
+    path: Assets/Scenes/HelloMR_Drummer.unity
+    guid: de5e1798a78a75640be04f59a0ea2631
+  - enabled: 1
+    path: Assets/Scenes/HelloMR_Avatar.unity
+    guid: 751b2ee2f62a7534b9a89a4ccee67204
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: febda66e027af3743849a309df42274a,
       type: 2}

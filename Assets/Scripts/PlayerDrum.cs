@@ -21,7 +21,10 @@ public class PlayerDrum : MonoBehaviour
     private float velocity;
     public float maxAnimSpeed = 3f;
     public float minAnimSpeed = 1f;
-    // Start is called before the first frame update
+
+    public int noteNum = 0;
+    public int noteVel = 0;
+
     void Start()
     {
         palette.Add(new Color(.9f, .9f, .3f));
@@ -34,34 +37,41 @@ public class PlayerDrum : MonoBehaviour
 
     public void PlayMIDINote(int note, int velocity) {
         // Debug.Log("Play note:" + note + "velocity: " + velocity);
-        if (note > 3 || note < 0) return;
+        if (note > 39 || note < 36) return;
+
 
         GameObject newNote = Instantiate(audioPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        newNote.GetComponent<AudioSource>().PlayOneShot(clips[note], velocity / 127.0f);
+        newNote.GetComponent<AudioSource>().PlayOneShot(clips[note-36], velocity / 127.0f);
+        Destroy(newNote, 2);
 
         if (velocity != 0)
         {
             animator.speed = VelocityMap(velocity);
-            if (note == 1)
+            noteVel = velocity;
+            if (note == 37)
             {
+                noteNum = 37;
                 drumPad.material.SetColor("_Color", palette[0]);
                 particles.startColor = palette[0];
                 animator.Play("Left Side.Left Hit", 1, 0);
             }
-            if (note == 0)
+            if (note == 36)
             {
+                noteNum = 36;
                 drumPad.material.SetColor("_Color", palette[1]);
                 particles.startColor = palette[1]; 
                 animator.Play("Right Side.Right Hit", 2, 0);
             }
-            if (note == 2)
+            if (note == 38)
             {
+                noteNum = 38;
                 drumPad.material.SetColor("_Color", palette[2]);
                 particles.startColor = palette[2];
                 animator.Play("Left Side.Left Hit", 1, 0);
             }
-            if (note == 3)
+            if (note == 39)
             {
+                noteNum = 39;
                 drumPad.material.SetColor("_Color", palette[3]);
                 particles.startColor = palette[3];
                 animator.Play("Right Side.Right Hit", 2, 0);
@@ -69,8 +79,6 @@ public class PlayerDrum : MonoBehaviour
         }
         particles.Emit(30);
     }
-
-    // // Update is called once per frame
 
 
     public float VelocityMap(float vel)
